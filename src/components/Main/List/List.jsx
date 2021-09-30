@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {List as MUIList, ListItem, ListItemAvatar, ListItemText, Avatar, ListItemSecondaryAction, IconButton, Slide} from '@material-ui/core';
 import {Delete, MoneyOff} from '@material-ui/icons';
 
@@ -7,15 +7,7 @@ import useStyles from './styles';
 
 const List = () => {
     const classes = useStyles();
-    // const globalState = useContext(ExpenseTrackerContext);
-
-    // console.log(globalState);
-
-    const transactions = [
-        {id: 1, type: "Income", category:"Salary", amount:50, date: "Tues Sept 29"},
-        {id: 2, type: "Expense", category:"Pets", amount:50, date: "Tues Sept 28"},
-        {id: 3, type: "Income", category:"Business", amount:150, date: "Wed Sept 29"},
-    ];
+     const {deleteTransaction, transactions} = useContext(ExpenseTrackerContext);
 
     return (
         <MUIList dense={false} className={classes.list}>
